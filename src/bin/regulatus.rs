@@ -65,11 +65,11 @@ fn main() {
     for entry in bed_file.into_iter() {
         match &gtf.slice_gtf( &entry.chr, entry.start.saturating_sub( args.distance ), entry.end + args.distance ){
             Ok( slice ) => {
-                println!("Here I got {} genes", slice.len() );
+                //println!("Here I got {} genes", slice.len() );
                 let center = ((entry.start + entry.end) / 2) as i32;
                 for gene in slice{
                     detected_genes += 1;
-                    let line = format!("{}\t{}\t{}\t{}\t{}\n", entry.as_string(), gene.gene_name, center - args.distance as i32, gene.start, gene.end);
+                    let line = format!("{}\t{}\t{}\t{}\t{}\n", entry.as_string(), gene.gene_name, center - gene.start as i32, gene.start, gene.end);
                     writer.write_all(line.as_bytes()).expect("Failed to write to outfile");
                 }
             },
