@@ -1,0 +1,9 @@
+[package]
+name = "regionomics"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "3.0.14", features = ["derive"] }
+flate2 = "*"
+quantify_bam = { git = "https://github.com/stela2502/quantify_bam", branch ="main" }

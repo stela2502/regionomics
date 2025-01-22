@@ -1,9 +1,12 @@
 
-# regionomics
+# Regionomics
 
 **Welcome to regionomics!**  
 Where genomic regions meet the future of bioinformatics. 🌿🧬  
 It's time to take your BED files, GTF annotations, and genomic insights to a whole new level! Whether you're hunting for transcription factor binding sites or exploring the entire genomic landscape, regionomics is your trusty guide.
+
+Or at least we could probably get there ;-) 
+
 
 ## Features
 - **BED-to-GTF Proximity Mapping**: Discover genes in proximity to your transcription factor peaks.
@@ -31,7 +34,8 @@ This will install **regionomics** on your machine. You can now use it to explore
 Alternatively, if you're just looking to use regionomics, you can also install it via Cargo directly (once it's published to crates.io):
 
 ```bash
-cargo install regionomics
+#cargo install regionomics
+cargo install --git https://github.com/stela2502/regionomics
 ```
 
 ## Usage
