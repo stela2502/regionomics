@@ -43,7 +43,29 @@ cargo install --git https://github.com/stela2502/regionomics
 Once installed, run the tool with a command like:
 
 ```bash
-regionomics --input myfile.bed --output result.txt --distance 5000
+regulatus -h
+regionomics 0.1.0
+Stefan L. <stefan.lang@med.lu.se>
+regulatus - A tool identifying potentially regulated genes in a gtf file based on distance to regions in
+a bed like file
+
+USAGE:
+    regulatus [OPTIONS] --bed <BED> --gtf <GTF>
+
+OPTIONS:
+    -b, --bed <BED>              Path to the input BED file containing genomic regions
+    -d, --distance <DISTANCE>    The distance in base pairs to search for genes within the region
+                                 (default is 1000) [default: 1000]
+    -g, --gtf <GTF>              Path to the input GTF file containing gene annotations
+    -h, --help                   Print help information
+    -o, --outfile <OUTFILE>      Path to the output file to save the results (default is stdout)
+                                 [default: stdout]
+    -V, --version                Print version information
+```
+
+Or
+```bash
+regulatus -b input myfile.bed -o result.txt -d 5000 -g my_genes.gtf
 ```
 
 This will analyze your BED file, looking for genes within 5kb of the peaks. Expand functionality as your research grows! 🌱

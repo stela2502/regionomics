@@ -8,8 +8,7 @@ use std::fs::{File, create_dir_all};
 use std::path::Path;
 use quantify_bam::gtf::GTF;
 
-
-/// regulatus - A tool identifying potentially regulated genes in a gtf based on distance to regions in a bed like file.
+/// regulatus - A tool identifying potentially regulated genes in a gtf file based on distance to regions in a bed like file.
 #[derive(Parser)]
 #[clap(version = "0.1.0", author = "Stefan L. <stefan.lang@med.lu.se>")]
 struct Args {
