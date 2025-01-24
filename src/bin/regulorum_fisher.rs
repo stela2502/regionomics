@@ -9,13 +9,13 @@ use regionomics::{create_reader, parse_delimited_file, create_writer, parse_valu
 
 
 
-/// regulus_fisher takes an outfile from regulatus and intersects it with a statuistical results text table. It only adds the statistical data to the regulatus output. A really simple task.
+/// regulorum_fisher takes an outfile from regulatos and intersects it with a statistical results text table. It only adds the statistical data to the regulatos output.
 #[derive(Parser)]
 #[clap(version = "0.1.0", author = "Stefan L. <stefan.lang@med.lu.se>")]
 struct Args {
-    /// An outfile from regulatus
+    /// An outfile from regulatos
     #[clap(short, long)]
-    regulatus_output: String,
+    regulatos_output: String,
 
     /// a text (gz) file with stats values
     #[clap(short, long)]
@@ -40,8 +40,8 @@ struct Args {
 fn main() {
     let args = Args::parse();
 
-    let intersects_reader = create_reader( &args.regulatus_output )
-        .unwrap_or_else(|e| panic!("Failed to create reader for regulatus_output: {}", e));
+    let intersects_reader = create_reader( &args.regulatos_output )
+        .unwrap_or_else(|e| panic!("Failed to create reader for regulatos_output: {}", e));
 
     let stats_reader = create_reader( &args.stats_file )
         .unwrap_or_else(|e| panic!("Failed to create reader for stats_file: {}", e));
@@ -94,7 +94,7 @@ fn main() {
     };
 
     let intersects_data = parse_delimited_file( intersects_reader, '\t' )
-        .unwrap_or_else(|e| panic!("Failed to parse the regulatus_output: {}", e));
+        .unwrap_or_else(|e| panic!("Failed to parse the regulatos_output: {}", e));
 
     let mut writer = create_writer( &args.outfile )
         .unwrap_or_else(|e| panic!("Failed to create the outfile: {}", e));
