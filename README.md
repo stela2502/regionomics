@@ -73,6 +73,10 @@ This will analyze your BED file, looking for genes within 5kb of the peaks. Expa
 
 **Note**: Replace `myfile.bed` with your BED file, and tweak the parameters to your needs.
 
+## Speed
+
+On a rather old Ubuntu desktop (AMD Ryzen 5 3600X 6-Core Processor (12 logical processors), 64Gb of Ram) regulatus intersected 3000 bam entries with the gencode.v38.chr_patch_hapl_scaff.annotation.gtf.gz human annotation in a little over 6 seconds.
+
 ## Contributing
 
 We welcome contributions! Feel free to fork the repo, make changes, and open pull requests. There's always more to explore in the world of genomic regions.

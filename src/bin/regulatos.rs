@@ -1,7 +1,6 @@
 use clap::{Parser};
 
-use regionomics::{BedFile};
-
+use regionomics::{BedFile, create_reader};
 
 use std::io::{Write, BufWriter};
 use std::fs::{File, create_dir_all};
