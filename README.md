@@ -44,14 +44,14 @@ cargo install --git https://github.com/stela2502/regionomics
 Once installed, run the tool with a command like:
 
 ```bash
-regulatus -h
+regulatos -h
 regionomics 0.1.0
 Stefan L. <stefan.lang@med.lu.se>
-regulatus - A tool identifying potentially regulated genes in a gtf file based on distance to regions in
+regulatos - A tool identifying potentially regulated genes in a gtf file based on distance to regions in
 a bed like file
 
 USAGE:
-    regulatus [OPTIONS] --bed <BED> --gtf <GTF>
+    regulatos [OPTIONS] --bed <BED> --gtf <GTF>
 
 OPTIONS:
     -b, --bed <BED>              Path to the input BED file containing genomic regions
@@ -66,7 +66,7 @@ OPTIONS:
 
 Or
 ```bash
-regulatus -b input myfile.bed -o result.txt -d 5000 -g my_genes.gtf
+regulatos -b input myfile.bed -o result.txt -d 5000 -g my_genes.gtf
 ```
 
 This will analyze your BED file, looking for genes within 5kb of the peaks. Expand functionality as your research grows! 🌱
@@ -75,7 +75,7 @@ This will analyze your BED file, looking for genes within 5kb of the peaks. Expa
 
 ## Speed
 
-On a rather old Ubuntu desktop (AMD Ryzen 5 3600X 6-Core Processor (12 logical processors), 64Gb of Ram) regulatus intersected 3000 bam entries with the gencode.v38.chr_patch_hapl_scaff.annotation.gtf.gz human annotation in a little over 6 seconds.
+On a rather old Ubuntu desktop (AMD Ryzen 5 3600X 6-Core Processor (12 logical processors), 64Gb of Ram) regulatos intersected 3000 bam entries with the gencode.v38.chr_patch_hapl_scaff.annotation.gtf.gz human annotation in a little over 6 seconds.
 
 ## Contributing
 

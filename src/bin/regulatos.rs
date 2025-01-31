@@ -7,7 +7,7 @@ use std::fs::{File, create_dir_all};
 use std::path::Path;
 use quantify_bam::gtf::GTF;
 
-/// regulatus - A tool identifying potentially regulated genes in a gtf file based on distance to regions in a bed like file.
+/// regulatos - A tool identifying potentially regulated genes in a gtf file based on distance to regions in a bed like file.
 #[derive(Parser)]
 #[clap(version = "0.1.0", author = "Stefan L. <stefan.lang@med.lu.se>")]
 struct Args {
@@ -56,7 +56,7 @@ fn main() {
     let file = File::create(path).expect("Unable to outfile");
 
     let mut writer = BufWriter::new(file);
-    let line = format!("bam_region\tgene_name\tdistance_to_bed_center\tstart\tend\n");
+    let line = format!("bed_region\tgene_name\tdistance_to_bed_center\tstart\tend\n");
     writer.write_all(line.as_bytes()).expect("Failed to write to file");
     
     

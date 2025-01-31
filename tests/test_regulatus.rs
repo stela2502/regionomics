@@ -5,7 +5,7 @@ mod tests {
     use std::path::Path;
 
     #[test]
-    fn test_regulatus() {
+    fn test_regulatos() {
         // Paths to input files and expected output
         let bed_file = "tests/data/test.bed";
         let gtf_file = "tests/data/test.gtf.gz";
@@ -19,10 +19,10 @@ mod tests {
         // Detect binary path based on build mode
         let binary = if cfg!(debug_assertions) {
             // Debug mode binary path
-            "target/debug/regulatus"
+            "target/debug/regulatos"
         } else {
             // Release mode binary path
-            "target/release/regulatus"
+            "target/release/regulatos"
         };
 
         let binary_path = Path::new(binary);

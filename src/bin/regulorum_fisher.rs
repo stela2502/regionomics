@@ -80,6 +80,7 @@ fn main() {
                     .find_map(|(id, name)| if col_name == name { Some(id) } else { None })
                     .expect(&format!("Column '{}' not found in header row", col_name));
 
+
                 for (id, row) in stats_data.iter().enumerate().skip(1) {
                     if let Some(gene) = row.get(col_id) {
                         genes.insert(gene.clone(), id);
@@ -108,7 +109,7 @@ fn main() {
     
 
      if let Some(regulus_header_row) = intersects_data.get(0) {
-        let header_line = regulus_header_row.join("\t") + &addon_to(header, addon, "\t");
+        let header_line = regulus_header_row.join("\t") + "\t" + &addon_to(header, addon, "\t");
         writer.write_all(header_line.as_bytes()).expect("Failed to write header to outfile");
     }
 
