@@ -1,6 +1,6 @@
 use clap::{Parser};
 
-use regionomics::{BedFile, create_reader};
+use regionomics::{BedFile, create_reader, create_writer};
 
 use std::io::{Write, BufWriter};
 use std::fs::{File, create_dir_all};
@@ -9,7 +9,7 @@ use quantify_bam::gtf::GTF;
 
 /// regulatos - A tool identifying potentially regulated genes in a gtf file based on distance to regions in a bed like file.
 #[derive(Parser)]
-#[clap(version = "0.1.0", author = "Stefan L. <stefan.lang@med.lu.se>")]
+#[clap(version = "0.1.1", author = "Stefan L. <stefan.lang@med.lu.se>")]
 struct Args {
     /// Path to the input BED file containing genomic regions
     #[clap(short, long)]
@@ -49,13 +49,13 @@ fn main() {
     let path = Path::new( &args.outfile );
     let dir = path.parent().expect("Failed to get parent directory");
 
-    // Create the directory if it doesn't exist
-    if !dir.exists() {
-        create_dir_all(dir).expect("Failed to create output directory");
-    }
-    let file = File::create(path).expect("Unable to outfile");
+    let mut writer = match create_writer( &args.outfile ){
+        Ok(w) => w,
+        Err(e) => {
+            panic!("Outfile could not be created: {e:?}");
+        }
+    };
 
-    let mut writer = BufWriter::new(file);
     let line = format!("bed_region\tgene_name\tdistance_to_bed_center\tstart\tend\n");
     writer.write_all(line.as_bytes()).expect("Failed to write to file");
     
