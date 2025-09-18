@@ -1,4 +1,4 @@
-bam_region	gene_name	distance_to_bed_center	start	end
+bed_region	gene_name	distance_to_bed_center	start	end
 chr7:27120557-27121200	HOXA1	27885	27092993	27096000
 chr7:27120557-27121200	HOTAIRM1	25231	27095647	27100265
 chr7:27120557-27121200	ENSG10010135768.1	24754	27096124	27096248

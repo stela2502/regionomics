@@ -52,9 +52,39 @@ mod tests {
         let generated_output = fs::read_to_string(output_file).expect("Failed to read generated output");
         let expected_output = fs::read_to_string(expected_file).expect("Failed to read expected result");
 
-        assert_eq!(
-            generated_output, expected_output,
-            "Generated output does not match the expected result"
-        );
+        fn assert_str_eq_verbose(left: &str, right: &str) {
+            let mut left_lines = left.lines();
+            let mut right_lines = right.lines();
+
+            for (i, (l, r)) in left_lines.by_ref().zip(right_lines.by_ref()).enumerate() {
+                if l != r {
+                    // Find first character difference
+                    let col = l
+                        .chars()
+                        .zip(r.chars())
+                        .position(|(lc, rc)| lc != rc)
+                        .map(|p| p + 1) // 1-based column
+                        .unwrap_or_else(|| l.len() + 1);
+                    panic!(
+                        "Strings differ at line {}, column {}:\n  left:  {:?}\n  right: {:?}",
+                        i + 1,
+                        col,
+                        l,
+                        r
+                    );
+                }
+            }
+
+            // If one has extra lines
+            if left_lines.next().is_some() || right_lines.next().is_some() {
+                panic!(
+                    "Strings differ in length: left has {} lines, right has {} lines",
+                    left.lines().count(),
+                    right.lines().count()
+                );
+            }
+        }
+        assert_str_eq_verbose(&generated_output, &expected_output);
+
     }
 }
