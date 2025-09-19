@@ -1,3 +1,4 @@
+[![Rust](https://github.com/stela2502/regionomics/actions/workflows/rust.yml/badge.svg)](https://github.com/stela2502/regionomics/actions/workflows/rust.yml)
 [![Rust](https://github.com/stela2502/regionomics/actions/workflows/rust.yml/badge.svg?branch=main)](https://github.com/stela2502/regionomics/actions/workflows/rust.yml)
 
 # Regionomics
